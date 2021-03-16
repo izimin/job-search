@@ -1,18 +1,18 @@
 ### Создание вакансии
-POST http://localhost:7878/job-search/api/v1/vacancies
+POST http://localhost:7878/job-search/api/vacancies
 Content-Type: application/json
 
 {
   "id": null,
-  "name": "vacancy 3",
+  "name": "vacancy 5",
   "city": "Perm",
   "requirements": "Req",
-  "salaryFrom": "100000",
+  "salaryFrom": "110000",
   "salaryTo": "150000"
 }
 
 ### Обновление вакансии
-PUT http://localhost:7878/job-search/api/v1/vacancies/2
+PUT http://localhost:7878/job-search/api/vacancies/2
 Content-Type: application/json
 
 {
