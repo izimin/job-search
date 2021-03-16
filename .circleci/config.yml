@@ -32,7 +32,6 @@ jobs:
       - run: sudo apt-get update
       - run: sudo apt-get install postgresql-client
       - run: whoami
-      - run: rm /usr/local/var/postgres/postmaster.pid
       - run: psql -v CREATE DATABASE "job-search"
 
       - run: mvn package
