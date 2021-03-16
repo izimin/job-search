@@ -27,7 +27,7 @@ jobs:
             - ~/.m2
           key: job-search-{{ checksum "pom.xml" }}
 
-      - run: sudo apt-get install postgresql-client-12
+      - run: sudo apt-get install postgresql-client-11
       - run: whoami
       - run: |
           psql -v ON_ERROR_STOP=1 --username postgres \<<-EOSQL \
