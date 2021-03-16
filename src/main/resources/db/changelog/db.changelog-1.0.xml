@@ -1,0 +1,27 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+    <changeSet author="kataev.k" id="202103130000">
+        <preConditions>
+            <not>
+                <tableExists tableName="vacancy"/>
+            </not>
+        </preConditions>
+
+        <comment>Создание таблицы вакансий</comment>
+
+        <createTable tableName="vacancy">
+            <column name="vacancy_id" type="bigserial">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="varchar"/>
+            <column name="city" type="varchar"/>
+            <column name="requirements" type="varchar"/>
+            <column name="salary_from" type="bigint"/>
+            <column name="salary_to" type="bigint"/>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,34 @@
+### Создание вакансии
+POST http://localhost:7878/job-search/api/v1/vacancies
+Content-Type: application/json
+
+{
+  "id": null,
+  "name": "vacancy 3",
+  "city": "Perm",
+  "requirements": "Req",
+  "salaryFrom": "100000",
+  "salaryTo": "150000"
+}
+
+### Обновление вакансии
+PUT http://localhost:7878/job-search/api/v1/vacancies/2
+Content-Type: application/json
+
+{
+  "id": 7,
+  "name": "vacancy 1.1",
+  "city": "Perm",
+  "requirements": "Req",
+  "salaryFrom": "100000",
+  "salaryTo": "180000"
+}
+
+### Получение списка вакансий
+GET http://localhost:7878/job-search/api/v1/vacancies?search=pe
+
+### Получение вакансии по Id
+GET http://localhost:7878/job-search/api/v1/vacancies/1
+
+### Удаление вакансии по Id
+DELETE http://localhost:7878/job-search/api/v1/vacancies/2
