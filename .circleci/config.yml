@@ -34,7 +34,7 @@ jobs:
       - run: sudo apt-get install postgresql-client-12
       - run: whoami
       - run: |
-          psql -v ON_ERROR_STOP=1 --username postgres <<-EOSQL \
+          psql -v ON_ERROR_STOP=1 --username postgres \\<<-EOSQL \
             CREATE DATABASE "job-search" \
             WITH OWNER = postgres \
             ENCODING = 'UTF8' \
