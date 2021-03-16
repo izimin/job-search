@@ -11,7 +11,7 @@ jobs:
         environment:
           POSTGRES_USER: "postgres"
           POSTGRES_PASSWORD: "postgres"
-          POSTGRES_DB: "postgres"
+          POSTGRES_DB: "job-search"
 
     steps:
 
@@ -26,13 +26,6 @@ jobs:
           paths:
             - ~/.m2
           key: job-search-{{ checksum "pom.xml" }}
-
-      - run: sudo apt-get install wget ca-certificates
-      - run: wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
-      - run: sudo apt-get update
-      - run: sudo apt-get install postgresql-client
-      - run: whoami
-      - run: psql -v CREATE DATABASE "job-search"
 
       - run: mvn package
 
