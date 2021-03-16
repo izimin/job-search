@@ -1,7 +1,7 @@
 version: "3.3"
 
 services:
-  postgres:
+  postgres_jobsearch:
     image: postgres:12-alpine
     container_name: postgres-job-search
     environment:
@@ -9,9 +9,15 @@ services:
       POSTGRES_PASSWORD: "postgres"
       POSTGRES_DB: "postgres"
     ports:
-      - "5432:5432"
+      - "5435:5432"
     volumes:
       - ./postgres/init:/docker-entrypoint-initdb.d
+
+  jobsearch:
+    build: .
+    container_name: job-search
+    ports:
+      - "8080:8080"
 
 # sed -i -e 's/\r$//' *.sh
 # sudo docker-compose -f docker-compose.yml up

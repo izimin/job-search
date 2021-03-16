@@ -1,36 +1,20 @@
 version: 2.1
 
+workflows:
+  build-deploy:
+    jobs:
+      - build-deploy
+
 jobs:
-  build:
-
-    working_directory: ~/job-search
-
-    docker:
-      - image: circleci/openjdk:16-jdk-buster
-      - image: circleci/postgres:11-alpine-ram
-        environment:
-          POSTGRES_USER: "postgres"
-          POSTGRES_PASSWORD: "postgres"
-          POSTGRES_DB: "job-search"
-
+  build-deploy:
+    machine: true
     steps:
-
       - checkout
-
-      - restore_cache:
-          key: job-search-{{ checksum "pom.xml" }}
-
-      - run: mvn dependency:go-offline
-
-      - save_cache:
-          paths:
-            - ~/.m2
-          key: job-search-{{ checksum "pom.xml" }}
-
-      - run: mvn package
-
-      - store_test_results:
-          path: target/surefire-reports
-
-      - store_artifacts:
-          path: target/job-search-0.0.1-SNAPSHOT.jar
+      - run:
+          name: Build and push Docker image to Heroku
+          command: |
+            set -x
+            sudo curl https://cli-assets.heroku.com/install.sh | sh
+            HEROKU_API_KEY=${HEROKU_API_KEY} heroku container:login
+            HEROKU_API_KEY=${HEROKU_API_KEY} heroku container:push -a job-search web
+            HEROKU_API_KEY=${HEROKU_API_KEY} heroku container:release -a job-search web
