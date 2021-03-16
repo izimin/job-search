@@ -30,7 +30,7 @@ jobs:
       - run: sudo apt-get install wget ca-certificates
       - run: wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
       - run: sudo apt-get update
-      - run: sudo apt-get install postgresql
+      - run: sudo apt-get install postgresql-client
       - run: whoami
       - run: rm /usr/local/var/postgres/postmaster.pid
       - run: psql -v CREATE DATABASE "job-search"
