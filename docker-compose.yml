@@ -1,17 +1,15 @@
 version: "3.3"
 
 services:
-  postgres_jobsearch:
+  postgres:
     image: postgres:12-alpine
     container_name: postgres-job-search
     environment:
       POSTGRES_USER: "postgres"
       POSTGRES_PASSWORD: "postgres"
-      POSTGRES_DB: "postgres"
+      POSTGRES_DB: "job-search"
     ports:
       - "5435:5432"
-    volumes:
-      - ./postgres/init:/docker-entrypoint-initdb.d
 
   jobsearch:
     build: .

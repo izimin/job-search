@@ -4,17 +4,16 @@ import com.sun.istack.NotNull;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
-@Schema(description = "Полное DTO вакансии", example =
-        """
-            {
-              "id": 1,
-              "name": "Junior React Developer",
-              "city": "Perm",
-              "requirements": "Live in Perm",
-              "salaryFrom": 80000,
-              "salaryTo": 150000
-            }
-        """
+@Schema(description = "Полное DTO вакансии",
+        example =
+            "{\n" +
+            "  \"id\": 1,\n" +
+            "  \"name\": \"Junior React Developer\",\n" +
+            "  \"city\": \"Perm\",\n" +
+            "  \"requirements\": \"Live in Perm\",\n" +
+            "  \"salaryFrom\": 80000,\n" +
+            "  \"salaryTo\": 150000\n" +
+            "}\n"
 )
 @Data
 public class VacancyDto {
