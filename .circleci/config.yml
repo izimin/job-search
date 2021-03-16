@@ -1,0 +1,55 @@
+version: 2.1
+
+jobs:
+  build:
+
+    working_directory: ~/job-search
+
+    docker:
+      - image: circleci/openjdk:15-jdk
+
+      - image: circleci/postgres:12-alpine
+        auth:
+          username: zimins
+          password: iAZQsA26yM
+        environment:
+          POSTGRES_USER: "postgres"
+          POSTGRES_PASSWORD: "postgres"
+          POSTGRES_DB: "postgres"
+
+    steps:
+      -
+      - checkout
+
+      - restore_cache:
+          key: job-search-{{ checksum "pom.xml" }}
+
+      - run: mvn dependency:go-offline
+
+      - save_cache:
+          paths:
+            - ~/.m2
+          key: job-search-{{ checksum "pom.xml" }}
+
+        - run: sudo apt-get install postgresql-client-12
+        - run: whoami
+        - run: |
+            psql -v ON_ERROR_STOP=1 --username postgres <<-EOSQL \
+              CREATE DATABASE "job-search" \
+              WITH OWNER = postgres \
+              ENCODING = 'UTF8' \
+              TABLESPACE = pg_default \
+              LC_COLLATE = 'en_US.utf8' \
+              LC_CTYPE = 'en_US.utf8' \
+              CONNECTION LIMIT = -1; \
+            GRANT CONNECT, TEMPORARY ON DATABASE "job-search" TO public; \
+            GRANT ALL ON DATABASE "job-search" TO postgres; \
+            EOSQL
+
+      - run: mvn package
+
+      - store_test_results:
+          path: target/surefire-reports
+
+      - store_artifacts:
+          path: target/job-search-0.0.1-SNAPSHOT.jar
