@@ -1,21 +1,13 @@
 version: "3.3"
 
 services:
-  postgres:
-    image: postgres:12-alpine
-    container_name: postgres-job-search
-    environment:
-      POSTGRES_USER: "postgres"
-      POSTGRES_PASSWORD: "postgres"
-      POSTGRES_DB: "job-search"
-    ports:
-      - "5435:5432"
-
   jobsearch:
     build: .
     container_name: job-search
     ports:
       - "8080:8080"
+    external_links:
+      - postgres
 
 # sed -i -e 's/\r$//' *.sh
 # sudo docker-compose -f docker-compose.yml up

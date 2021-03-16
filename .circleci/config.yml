@@ -7,13 +7,6 @@ workflows:
 
 jobs:
   build-deploy:
-    docker:
-      - image: circleci/postgres:11-alpine-ram
-        environment:
-          POSTGRES_USER: "postgres"
-          POSTGRES_PASSWORD: "postgres"
-          POSTGRES_DB: "job-search"
-
     machine: true
     steps:
       - checkout

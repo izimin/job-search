@@ -6,12 +6,12 @@ server:
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/job-search
-    username: postgres
-    password: postgres
+    url: jdbc:postgresql://ec2-54-228-209-117.eu-west-1.compute.amazonaws.com:5432/d66n7s83jl789u
+    username: ewhaapdwpllmka
+    password: 065a7dfd14d5562cf774811a11d240ad1eb8fbc3a4af0ac3db5b4cd64339597a
     platform: postgresql
     initialization-mode: never
-    name: job-search
+    name: d66n7s83jl789u
     continue-on-error: true
 
   jpa:

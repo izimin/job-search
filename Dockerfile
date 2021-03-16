@@ -19,6 +19,7 @@ RUN mvn -B clean package
 
 # Docker is running a java process to run a service built in previous stage
 FROM ${RUNTIME_IMAGE}
+ENTRYPOINT ["/true"]
 
 WORKDIR /app
 COPY --from=build /build/target/job-search.jar /app/job-search.jar
