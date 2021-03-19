@@ -1,10 +1,10 @@
 ### Создание вакансии
-POST http://localhost:7878/job-search/api/vacancies
+POST {{baseUrl}}/vacancies
 Content-Type: application/json
 
 {
   "id": null,
-  "name": "vacancy 5",
+  "name": "vacancy 4",
   "city": "Perm",
   "requirements": "Req",
   "salaryFrom": "110000",
@@ -12,7 +12,7 @@ Content-Type: application/json
 }
 
 ### Обновление вакансии
-PUT http://localhost:7878/job-search/api/vacancies/2
+PUT {{baseUrl}}/vacancies/2
 Content-Type: application/json
 
 {
@@ -25,10 +25,10 @@ Content-Type: application/json
 }
 
 ### Получение списка вакансий
-GET http://localhost:7878/job-search/api/v1/vacancies?search=pe
+GET {{baseUrl}}/vacancies
 
 ### Получение вакансии по Id
-GET http://localhost:7878/job-search/api/v1/vacancies/1
+GET {{baseUrl}}/vacancies/1
 
 ### Удаление вакансии по Id
-DELETE http://localhost:7878/job-search/api/v1/vacancies/2
+DELETE {{baseUrl}}/vacancies/2
