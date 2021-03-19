@@ -16,3 +16,5 @@ services:
     container_name: job-search
     ports:
       - "7878:7878"
+    depends_on:
+      - postgres-job-search
