@@ -3,7 +3,6 @@ version: '3.3'
 services:
   postgres-job-search:
     image: postgres:11-alpine
-    container_name: postgres-job-search
     environment:
       POSTGRES_USER: "postgres"
       POSTGRES_PASSWORD: "postgres"
@@ -13,8 +12,7 @@ services:
 
   job-search:
     build: .
-    container_name: job-search
-    ports:
-      - "7878:7878"
     depends_on:
       - postgres-job-search
+    ports:
+      - "7878:7878"
