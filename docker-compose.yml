@@ -1,18 +1,16 @@
 version: '3.3'
 
 services:
-  postgres-job-search:
-    image: postgres:11-alpine
-    environment:
-      POSTGRES_USER: "postgres"
-      POSTGRES_PASSWORD: "postgres"
-      POSTGRES_DB: "job-search"
-    ports:
-      - "5475:5432"
+#  postgres-job-search:
+#    image: postgres:11-alpine
+#    environment:
+#      POSTGRES_USER: "postgres"
+#      POSTGRES_PASSWORD: "postgres"
+#      POSTGRES_DB: "job-search"
+#    ports:
+#      - "5432:5432"
 
   job-search:
     build: .
-    depends_on:
-      - postgres-job-search
     ports:
       - "7878:7878"
