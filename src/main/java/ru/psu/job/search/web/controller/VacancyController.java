@@ -16,7 +16,6 @@ import ru.psu.job.search.web.mapper.VacancyMapper;
 import ru.psu.job.search.web.request.VacancySearchRequest;
 import ru.psu.job.search.web.response.SuccessResponse;
 
-import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 @Tag(name = "VacancyController", description = "API по работе с вакансиями")
@@ -31,9 +30,7 @@ public class VacancyController {
     @Operation(summary = "Список вакансий", description = "Выдает список вакансий в формате страниц с поиском и сортировкой")
     @GetMapping
     public ResponseEntity<PageDto<VacancyDto>> findAll(@Valid @Parameter(description = "Параметры поиска") VacancySearchRequest request,
-                                                       @Parameter(description = "Параметры пагинации, если нужно") Pageable pageable,
-        HttpServletResponse response
-    ) {
+                                                       @Parameter(description = "Параметры пагинации, если нужно") Pageable pageable) {
         final VacancySpecificationBuilder specification = VacancySpecificationBuilder.builder()
                 .search(request.getSearch())
                 .name(request.getName())
