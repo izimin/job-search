@@ -1,4 +1,4 @@
-version: '3.7'
+version: '3.3'
 
 services:
   postgres-job-search:
@@ -12,8 +12,6 @@ services:
       - "5475:5432"
 
   job-search:
-    depends_on:
-      - postgres-job-search
     build: .
     container_name: job-search
     ports:
