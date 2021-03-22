@@ -1,0 +1,41 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 100px;
+    width: 800px;
+}
+
+.vacancyInput {
+    font-family: Oswald-Regular serif;
+    margin-bottom: 0.3rem;
+    padding: 0.5rem;
+    background-color: white;
+    color: #666565;
+    outline: none;
+    border-style: solid;
+    border-radius: 5px;;
+}
+
+.createButton {
+    font-family: Oswald-Bold, serif;
+    padding: 0.5rem;
+    color: white;
+    background-color: #6678d2;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 0.3rem;
+    cursor: pointer;
+}
+
+.backButton {
+    font-family: Oswald-Bold, serif;
+    padding: 0.5rem;
+    color: #666565;
+    background-color: white;
+    border: solid 2px #dcd8d8;
+    border-radius: 5px;
+    margin-bottom: 0.3rem;
+    cursor: pointer;
+}

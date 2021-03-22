@@ -82,13 +82,6 @@
             <version>${spEl-validator.version}</version>
         </dependency>
 
-        <!-- Swagger dependencies -->
-        <dependency>
-            <groupId>org.springdoc</groupId>
-            <artifactId>springdoc-openapi-ui</artifactId>
-            <version>${springdoc.version}</version>
-        </dependency>
-
     </dependencies>
 
     <build>

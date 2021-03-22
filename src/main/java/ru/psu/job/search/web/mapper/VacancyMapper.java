@@ -1,9 +1,9 @@
 package ru.psu.job.search.web.mapper;
 
-import org.mapstruct.*;
+import org.mapstruct.Mapper;
 import org.springframework.data.domain.Page;
-import ru.psu.job.search.web.dto.PageDto;
 import ru.psu.job.search.model.Vacancy;
+import ru.psu.job.search.web.dto.PageDto;
 import ru.psu.job.search.web.dto.VacancyDto;
 
 import java.util.Collection;

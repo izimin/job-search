@@ -1,6 +1,9 @@
 package ru.psu.job.search.service.mapper;
 
-import org.mapstruct.*;
+import org.mapstruct.BeanMapping;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+import org.mapstruct.MappingTarget;
 import ru.psu.job.search.model.Vacancy;
 
 @Mapper(componentModel = "spring")
