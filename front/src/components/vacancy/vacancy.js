@@ -109,6 +109,7 @@ class Vacancy extends Component {
                             onChange={({target: {value}}) => this.editVacancy('name', value)}
                             value={this.state.editedVacancy.name}
                             placeholder="Введите название вакансии"
+                            title="Название вакансии"
                         />
                         <input
                             className={classes.vacancyInput}
@@ -116,13 +117,15 @@ class Vacancy extends Component {
                             value={this.state.editedVacancy.city}
                             onChange={({target: {value}}) => this.editVacancy('city', value)}
                             placeholder="Введите название города"
+                            title="Город"
                         />
-                        <input
-                            className={classes.vacancyInput}
+                        <textarea
+                            className={classes.vacancyTextarea}
                             type='text'
                             value={this.state.editedVacancy.requirements}
                             onChange={({target: {value}}) => this.editVacancy('requirements', value)}
                             placeholder="Введите необходимые для работы требования"
+                            title="Требования"
                         />
                         <input
                             className={classes.vacancyInput}
@@ -130,6 +133,7 @@ class Vacancy extends Component {
                             value={this.state.editedVacancy.salaryFrom}
                             onChange={({target: {value}}) => this.editVacancy('salaryFrom', value)}
                             placeholder="Введите минимальные зарплатные ожидания в рублях"
+                            title="Минимальная з/п"
                         />
                         <input
                             className={classes.vacancyInput}
@@ -137,6 +141,7 @@ class Vacancy extends Component {
                             value={this.state.editedVacancy.salaryTo}
                             onChange={({target: {value}}) => this.editVacancy('salaryTo', value)}
                             placeholder="Введите максимальные зарплатные ожидания в рублях"
+                            title="Максимальная з/п"
                         />
                     </div>
                     <button className={classes.saveButton} onClick={() => this.saveVacancy()}>Сохранить</button>

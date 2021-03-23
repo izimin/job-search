@@ -31,7 +31,7 @@ class VacancyCreation extends Component {
                 pathname: '/vacancies/',
                 state: this.state.vacancies
             });
-        } else {
+        }else {
             console.log('Введите все поля')
         }
     }
@@ -43,7 +43,7 @@ class VacancyCreation extends Component {
             vacancy[fieldName] = value;
         }
 
-        if (fieldName !== 'salaryFrom' && fieldName !== 'salaryTo') {
+        if(fieldName !== 'salaryFrom' && fieldName !== 'salaryTo'){
             vacancy[fieldName] = value;
         }
 
@@ -65,6 +65,7 @@ class VacancyCreation extends Component {
                 <input
                     className={classes.vacancyInput}
                     placeholder="Название вакансии"
+                    title="Название вакансии"
                     value={this.state.vacancy.name ? this.state.vacancy.name : ''}
                     onChange={({target: {value}}) => this.changeVacancy('name', value)}
                 />
@@ -72,13 +73,15 @@ class VacancyCreation extends Component {
                 <input
                     className={classes.vacancyInput}
                     placeholder="Город"
+                    title="Город"
                     value={this.state.vacancy.city ? this.state.vacancy.city : ''}
                     onChange={({target: {value}}) => this.changeVacancy('city', value)}
                 />
 
-                <input
-                    className={classes.vacancyInput}
+                <textarea
+                    className={classes.vacancyTextarea}
                     placeholder="Требования"
+                    title="Требования"
                     value={this.state.vacancy.requirements ? this.state.vacancy.requirements : ''}
                     onChange={({target: {value}}) => this.changeVacancy('requirements', value)}
                 />
@@ -86,6 +89,7 @@ class VacancyCreation extends Component {
                 <input
                     className={classes.vacancyInput}
                     placeholder="Минимальные зарплатные ожидания"
+                    title="Минимальная з/п"
                     value={this.state.vacancy.salaryFrom ? this.state.vacancy.salaryFrom : ''}
                     onChange={({target: {value}}) => this.changeVacancy('salaryFrom', value)}
                 />
@@ -93,6 +97,7 @@ class VacancyCreation extends Component {
                 <input
                     className={classes.vacancyInput}
                     placeholder="Максимальные зарплатные ожидания"
+                    title="Максимальная з/п"
                     value={this.state.vacancy.salaryTo ? this.state.vacancy.salaryTo : ''}
                     onChange={({target: {value}}) => this.changeVacancy('salaryTo', value)}
                 />

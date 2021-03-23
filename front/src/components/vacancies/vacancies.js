@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import React, {Component} from 'react';
 import {Api} from '../../api/api';
 
@@ -18,9 +20,15 @@ class Vacancies extends Component {
 
     componentDidMount() {
         if (this.props.history.location.state) {
+            let cities = [];
+            this.props.history.location.state.forEach(({city}) => {
+                if (!cities.includes(city))
+                    cities.push(city);
+            });
             this.setState({
                 vacancies: this.props.history.location.state,
-                displayedVacancies: this.props.history.location.state
+                displayedVacancies: this.props.history.location.state,
+                cities
             })
         } else {
             this.getVacancies();

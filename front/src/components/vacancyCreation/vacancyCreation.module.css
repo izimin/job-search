@@ -15,7 +15,23 @@
     color: #666565;
     outline: none;
     border-style: solid;
-    border-radius: 5px;;
+    border-width: 2px;
+    border-radius: 5px;
+}
+
+.vacancyTextarea {
+    font-family: Oswald-Regular serif;
+    margin-bottom: 0.3rem;
+    padding: 0.5rem;
+    background-color: white;
+    color: #666565;
+    outline: none;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 5px;
+    min-height: 100px;
+    resize: vertical;
+    overflow: auto;
 }
 
 .createButton {
